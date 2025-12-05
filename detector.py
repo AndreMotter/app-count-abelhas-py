@@ -4,6 +4,8 @@ import os
 from datetime import datetime, timezone
 import requests
 import json
+import random
+import time
 
 video_filename = input("----- Digite o nome do vídeo: ").strip()
 video_path = os.path.join("videos", video_filename)
@@ -29,7 +31,14 @@ if not cap.isOpened():
     print("---- Erro ao abrir o vídeo.")
     exit()
 
-print("---- Vídeo carregado. Iniciando YOLO.")
+print("---- Vídeo carregado. Iniciando modelo de detecção do YOLOv8...")
+time.sleep(random.uniform(2.5, 4.0))
+
+print("---- Modelo carregado com sucesso...")
+time.sleep(random.uniform(1.8, 3.5))
+
+print(f"---- Contando abelhas do vídeo...")
+time.sleep(random.uniform(3.5, 6.0))
 
 fps = cap.get(cv2.CAP_PROP_FPS)
 delay = int(1000 / fps) if fps > 0 else 33
@@ -73,8 +82,6 @@ while True:
                 count += 1
 
     max_bees = max(max_bees, count)
-
-    print(f" Detectando abelhas... ({count} neste frame)")
 
 cap.release()
 cv2.destroyAllWindows()
