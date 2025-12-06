@@ -23,7 +23,7 @@ except Exception as e:
     print("----- Erro ao extrair códigos do nome do vídeo. Esperado: VIDEO_<area>_<cultura>.mp4")
     exit()
 
-api_url = "http://localhost:3002/sgr-leituravideo/Salvar" 
+api_url = "http://scanagro.site:8023/sgr-leituravideo/Salvar" 
 
 cap = cv2.VideoCapture(video_path)
 
@@ -31,14 +31,12 @@ if not cap.isOpened():
     print("---- Erro ao abrir o vídeo.")
     exit()
 
-print("---- Vídeo carregado. Iniciando modelo de detecção do YOLOv8...")
-time.sleep(random.uniform(2.5, 4.0))
-
-print("---- Modelo carregado com sucesso...")
-time.sleep(random.uniform(1.8, 3.5))
-
 print(f"---- Contando abelhas do vídeo...")
 time.sleep(random.uniform(3.5, 6.0))
+
+time.sleep(random.uniform(2.5, 4.0))
+
+time.sleep(random.uniform(1.8, 3.5))
 
 fps = cap.get(cv2.CAP_PROP_FPS)
 delay = int(1000 / fps) if fps > 0 else 33
